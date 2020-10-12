@@ -35,7 +35,7 @@ export const ApplicationViews = (props) => {
             </ArticleProvider>
         {/* edit articles */}
             <ArticleProvider>
-                <Route exact path="/articles/edit/:articlId(\d+)">
+                <Route exact path="/articles/edit/:articleId(\d+)">
                     <ArticleForm />
                 </Route>
             </ArticleProvider>

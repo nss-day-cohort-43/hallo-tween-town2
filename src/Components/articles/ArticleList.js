@@ -17,7 +17,7 @@ export const ArticleList = () =>{
         <>
             <h2>Articles</h2>
             <button onClick={() => {history.push("/articles/create")}}>
-            Add Article
+            Add New Article
         </button>
         <div className="articles">
                 {articles.map(article =>{

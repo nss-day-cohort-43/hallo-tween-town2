@@ -8,6 +8,7 @@ export const ArticleDetail = () => {
     const [article, setArticle] = useState({})
     const {articleId} = useParams();
     const history = useHistory();
+    const activeUser = sessionStorage.getItem("activeUser")
 
     useEffect(() => {
         getArticleById(articleId)
@@ -18,7 +19,7 @@ export const ArticleDetail = () => {
     return(
         <section className="article">
             <h3 className="article-title">{article.title}</h3>
-            <div className="article-userId"></div>
+            <div className="article-userId">{activeUser}</div>
             <div className="article-date">{article.date}</div>
             <div className="article-synopsis">{article.synopsis}</div>
             <div className="article-url">{article.url}</div>

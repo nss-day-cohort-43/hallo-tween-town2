@@ -5,7 +5,7 @@ import { useHistory, useParams } from "react-router-dom"
 
 export const ArticleForm = () => {
     const { addArticle, getArticleById, editArticle } = useContext(ArticleContext)
-    const [article, setArticle] = useState({})
+    const [article, setArticle] = useState({ title: "", date: "", synopsis: "", url: ""})
     const [isLoading, setIsLoading] = useState(true);
     const { articleId } = useParams();
     const history = useHistory();
@@ -18,6 +18,7 @@ export const ArticleForm = () => {
 
     useEffect(() => {
         if (articleId) {
+            console.log("id", articleId)
             getArticleById(articleId)
                 .then(article => {
                     setArticle(article)
@@ -36,16 +37,17 @@ export const ArticleForm = () => {
                     title: article.title,
                     date: article.date,
                     synopsis: article.synopsis,
-                    userId: parseInt(localStorage.getItem("activeUser"))
+                    url: article.url,
+                    userId: parseInt(localStorage.getItem("werewolf_user"))
                 })
-                    .then(() => history.push(`articles/detail/${article.id}`))
+                    .then(() => history.push(`/articles/detail/${article.id}`))
             } else {
                 addArticle({
-                    id: article.id,
                     title: article.title,
                     date: article.date,
                     synopsis: article.synopsis,
-                    userId: parseInt(localStorage.getItem("activeUser"))
+                    url: article.url,
+                    userId: parseInt(localStorage.getItem("werewolf_user"))
                 })
                 .then(() => history.push("/articles"))
             }
@@ -57,37 +59,38 @@ export const ArticleForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="articleTitle">Article title:</label>
-                    <input type="text" id="articleTitle" title="title" required autoFocus className="form-control"
+                    <input type="text" id="title" name="title" value={article.title} required autoFocus className="form-control"
                         placeholder="Article title"
                         onChange={handleControlledInputChange}
-                        defaultValue={article.title} />
+                        
+                       />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="articleDate">Date:</label>
-                    <input type="text" id="articleDate" name="date" required autoFocus className="form-control"
+                    <input type="date" id="articleDate" name="date" value={article.date} required autoFocus className="form-control"
                         placeholder="Date"
                         onChange={handleControlledInputChange}
-                        defaultValue={article.date} />
+                        />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="articleSynopsis">Synopsis:</label>
-                    <input type="text" id="articleSynopsis" name="synopsis" required autoFocus className="form-control"
+                    <input type="text" id="articleSynopsis" name="synopsis" value={article.synopsis} required autoFocus className="form-control"
                         placeholder="Article synopsis"
                         onChange={handleControlledInputChange}
-                        defaultValue={article.synopsis} />
+                         />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="articleUrl">Article URL:</label>
-                    <input type="text" id="articleURL" name="url" required autoFocus className="form-control"
+                    <input type="text" id="articleURL" name="url" value={article.url} required autoFocus className="form-control"
                         placeholder="Article URL"
                         onChange={handleControlledInputChange}
-                        defaultValue={article.URL} />
+                         />
                 </div>
             </fieldset>
             <button className="btn btn-primary"
