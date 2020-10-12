@@ -7,6 +7,8 @@ import { ArticleProvider } from "./articles/ArticleProvider"
 import { MessageList } from "./Messages/MessageList"
 import { MessageProvider } from "./Messages/MessageProvider"
 import { ArticleList } from "./articles/ArticleList"
+import {EventList} from "./event/EventList"
+import {EventProvider} from "./event/EventProvider"
 
 export const ApplicationViews = (props) => {
     return (
@@ -45,7 +47,7 @@ export const ApplicationViews = (props) => {
             </ArticleProvider>
 
             <EventProvider>
-        <Route path="/">
+        <Route exact path="/events">
           <EventList />
         </Route>
       </EventProvider>
