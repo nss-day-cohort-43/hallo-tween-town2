@@ -56,7 +56,7 @@ export const Register = (props) => {
             </dialog>
 
             <form className="form--login" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal">Become a werewolf</h1>
+                <h1 className="h3 mb-3 font-weight-normal">Become a werewolf...</h1>
                 <fieldset>
                     <label htmlFor="username"> username </label>
                     <input ref={username} type="text" name="username" className="form-control" placeholder="user name" required autoFocus />
