@@ -3,7 +3,7 @@ import { TaskContext } from "./TaskProvider"
 import { useParams, useHistory } from "react-router-dom"
 
 export const TaskDetail = () => {
-    const { deleteTask, getTaskById } = useContext(TaskContext)
+    const { tasks, deleteTask, getTaskById } = useContext(TaskContext)
 	
 	const [task, setTask] = useState({})
 	
