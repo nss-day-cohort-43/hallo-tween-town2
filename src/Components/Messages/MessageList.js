@@ -15,16 +15,14 @@ export const MessageList = () => {
 
     }, [])
 
-    const history = useHistory()
-
     return (
         <div className="message">
             <h2>Messages</h2>
             {
                 messages.map(message => {
-                    return <MessageCard key={message.id} message={message} />
+                    return <MessageCard key={message.id} user={message.user.name} message={message} />
                 })
-            }
+            }            
             <MessageForm></MessageForm>
         </div>
     )

@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
-import { Form } from 'semantic-ui-react'
 import { MessageContext } from './MessageProvider'
 
 export const MessageForm = (props) => {
@@ -34,10 +33,10 @@ export const MessageForm = (props) => {
         setIsLoading(true);
         if (messageId) {
             updateMessage({
-                id: parseInt(message.id),
+                id: message.id,
                 message: message.message,
                 date: message.date,
-                userId: parseInt(localStorage.getItem("werewolf_user"))
+                userId: message.userId
             })
                 .then(() => history.push(`/messages/detail/${message.id}`))
         } else {
@@ -46,7 +45,7 @@ export const MessageForm = (props) => {
                 date: message.date,
                 userId: parseInt(localStorage.getItem("werewolf_user"))
             })
-                .then(() => history.push("messages"))
+                .then(() => history.push("/messages"))
         }
     }
 
@@ -56,18 +55,18 @@ export const MessageForm = (props) => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="messageMessage">Type your message here: </label>
-                    <input type="text" id="messageMessage" name="message" required autoFocus className="form-control"
+                    <input type="text" id="messageMessage" name="message" value={message.message} required autoFocus className="form-control"
                         placeholder="Message name"
                         onChange={handleControlledInputChange}
-                        defaultValue={message.name} />
+                        />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="messageDate">Date of event: </label>
-                    <input type="date" id="messageDate" name="date" required className="form-control"
+                    <input type="date" id="messageDate" name="date" value={message.date} required className="form-control"
                         onChange={handleControlledInputChange}
-                        defaultValue={message.date} />
+                        />
                 </div>
             </fieldset>
             <button type="submit"
