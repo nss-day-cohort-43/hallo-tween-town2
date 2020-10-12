@@ -8,7 +8,7 @@ export const TaskForm = (props) => {
 
 
     //for edit, hold on to state of task in this view
-    const [tasks, setTasks] = useState({})
+    const [tasks, setTasks] = useState({task: "", completeBy: ""})
     //wait for data before button is active
     const [isLoading, setIsLoading] = useState(true);
 
@@ -42,7 +42,6 @@ export const TaskForm = (props) => {
         Get animal state and location state on initialization.
     */
     useEffect(() => {
-       getTasks().then(()=> {
         if (taskId){
             getTaskById(taskId)
             .then(task => {
@@ -52,7 +51,6 @@ export const TaskForm = (props) => {
         } else {
             setIsLoading(false)
         }
-   })
 }, [])
 
 
@@ -65,17 +63,18 @@ export const TaskForm = (props) => {
             if (taskId){
                 //PUT - update
                 editTask({
-                    task: task.current.value,
-                    completeBy: completeBy.current.value,
-                    userId: parseInt(localStorage.getItem("werewolf_user"))
+                    id: tasks.id,
+                    task: tasks.task,
+                    completeBy: tasks.completeBy,
+                    userId: tasks.userId
                 })
-                .then(() => history.push(`/tasks/detail/${task.id}`))
+                .then(() => history.push(`/tasks/detail/${taskId}`))
             }else {
                 //POST - add
                 addTask({
-                    task: task.current.value,
+                    task: tasks.task,
                     userId: parseInt(localStorage.getItem("werewolf_user")),
-                    completeBy: completeBy.current.value
+                    completeBy: tasks.completeBy
                 })
                 .then(() => history.push("/tasks"))
             }
@@ -89,17 +88,17 @@ export const TaskForm = (props) => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="taskName">Task Name: </label>
-                    <input type="text" id="taskName" ref={task} required autoFocus className="form-control" placeholder="Task name" 
+                    <input type="text" name="task" id="tasks" value={tasks.task} required autoFocus className="form-control" placeholder="Task name" 
                     onChange={handleControlledInputChange}
-                    defaultValue={task.task}/>
+                    />
                 </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="completeTask">Complete By Date: </label>
-                    <input type="date" name="completeBy" ref={completeBy} className="form-control"
+                    <input type="date" name="completeBy" value={tasks.completeBy} className="form-control"
                     onChange={handleControlledInputChange}
-                    defaultValue={task.completeBy}></input>
+                    ></input>
                 </div>
             </fieldset>
             <button type="saveTask"

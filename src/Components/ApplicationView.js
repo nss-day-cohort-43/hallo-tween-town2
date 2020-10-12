@@ -6,7 +6,8 @@ import { TaskProvider } from "./tasks/TaskProvider"
 import { TaskList } from "./tasks/TaskList"
 import { TaskForm } from "./tasks/TaskForm"
 import { TaskDetail } from "./tasks/TaskDetail"
-
+import { EventProvider } from "./event/EventProvider";
+import { EventList } from "./event/EventList";
 
 export const ApplicationViews = (props) => {
     return (
@@ -30,7 +31,7 @@ export const ApplicationViews = (props) => {
             </TaskProvider>
 
             <TaskProvider>
-                <Route path="/tasks/edit/:taskId(\d+)">
+                <Route exact path="/tasks/edit/:taskId(\d+)">
                     <TaskForm />
                 </Route>
             </TaskProvider>
@@ -40,6 +41,13 @@ export const ApplicationViews = (props) => {
                     <TaskDetail />
                 </Route>
             </TaskProvider>
+
+            <EventProvider>
+                <Route path="/">
+                    <EventList />
+                </Route>
+            </EventProvider>
         </>
     )
 }
+
