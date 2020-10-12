@@ -29,7 +29,7 @@ export const Register = (props) => {
                         },
                         body: JSON.stringify({
                             email: email.current.value,
-                            userName: `${username.current.value}`
+                            username: `${username.current.value}`
                         })
                     })
                         .then(_ => _.json())
