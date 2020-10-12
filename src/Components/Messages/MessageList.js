@@ -8,6 +8,7 @@ import { MessageForm } from "./MessageForm"
 export const MessageList = () => {
     // This state changes when `getMessages()` is invoked below
     const { messages, getMessages } = useContext(MessageContext)
+    const history = useHistory()
 
     //useEffect - reach out to the world for something
     useEffect(() => {
@@ -22,8 +23,10 @@ export const MessageList = () => {
                 messages.map(message => {
                     return <MessageCard key={message.id} user={message.user.name} message={message} />
                 })
-            }            
-            <MessageForm></MessageForm>
+            }  
+            <button onClick={() => {history.push("/messages/create")}}>
+                New Message
+            </button>          
         </div>
     )
 }

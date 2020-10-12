@@ -14,6 +14,7 @@ import { ArticleForm } from "./articles/ArticleForm"
 import { ArticleProvider } from "./articles/ArticleProvider"
 import { ArticleList } from "./articles/ArticleList"
 import { Home } from "./Home"
+import { MessageForm } from "./Messages/MessageForm"
 
 export const ApplicationViews = (props) => {
     return (
@@ -25,6 +26,24 @@ export const ApplicationViews = (props) => {
             <MessageProvider>
                 <Route exact path="/messages">
                     <MessageList />
+                </Route>
+            </MessageProvider>
+
+            <MessageProvider>
+                <Route exact path="/messages/detail/:messageId(\d+)">
+                    <MessageDetail />
+                </Route>
+            </MessageProvider>
+
+            <MessageProvider>
+                <Route exact path="/messages/edit/:messageId(\d+)">
+                    <MessageForm />
+                </Route>
+            </MessageProvider>
+
+            <MessageProvider>
+                <Route exact path="/messages/create">
+                    <MessageForm />
                 </Route>
             </MessageProvider>
 
