@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import { MessageList } from "./Messages/MessageList";
 import { MessageProvider } from "./Messages/MessageProvider";
 import { EventProvider } from "./event/EventProvider";
-import { EventCard } from "./event/EventCard";
+import { EventList } from "./event/EventList";
 
 export const ApplicationViews = props => {
   return (
@@ -16,7 +16,7 @@ export const ApplicationViews = props => {
 
       <EventProvider>
         <Route path="/">
-          <EventCard />
+          <EventList />
         </Route>
       </EventProvider>
     </>
