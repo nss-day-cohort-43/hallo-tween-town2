@@ -9,7 +9,7 @@ export const ArticleProvider = (props) => {
         
         //get articles from API
         const getArticles = () => {
-            return fetch("://localhost:8088/articles")
+            return fetch("http://localhost:8088/articles?expand=user")
             .then(res => res.json())
             .then(setArticles)
         }
@@ -30,7 +30,7 @@ export const ArticleProvider = (props) => {
                 .then(res=>res.json())
             }
 
-            const deleteArticle = artcileId => {
+            const deleteArticle = articleId => {
                 return fetch(`http://localhost:8088/articles/${articleId}`, {
                 method: "DELETE"
                 })
