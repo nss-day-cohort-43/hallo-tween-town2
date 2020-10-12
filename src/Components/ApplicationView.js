@@ -8,21 +8,21 @@ import { TaskForm } from "./tasks/TaskForm"
 import { TaskDetail } from "./tasks/TaskDetail"
 import { EventProvider } from "./event/EventProvider";
 import { EventList } from "./event/EventList";
-import {Home} from "./Home"
 import { ArticleDetail } from "./articles/ArticleDetail"
 import { ArticleForm } from "./articles/ArticleForm"
 import { ArticleProvider } from "./articles/ArticleProvider"
-import { MessageList } from "./Messages/MessageList"
-import { MessageProvider } from "./Messages/MessageProvider"
 import { ArticleList } from "./articles/ArticleList"
-import {EventList} from "./event/EventList"
-import {EventProvider} from "./event/EventProvider"
+import { Home } from "./Home"
 
 export const ApplicationViews = (props) => {
     return (
         <>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+
             <MessageProvider>
-                <Route path="/">
+                <Route exact path="/messages">
                     <MessageList />
                 </Route>
             </MessageProvider>
@@ -77,7 +77,7 @@ export const ApplicationViews = (props) => {
             </TaskProvider>
 
             <EventProvider>
-                <Route path="/">
+                <Route path="/events">
                     <EventList />
                 </Route>
             </EventProvider>
