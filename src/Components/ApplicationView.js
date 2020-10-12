@@ -44,6 +44,12 @@ export const ApplicationViews = (props) => {
                 </Route>
             </ArticleProvider>
 
+            <EventProvider>
+        <Route path="/">
+          <EventList />
+        </Route>
+      </EventProvider>
+
         </>
     )
 }
