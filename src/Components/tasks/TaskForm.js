@@ -1,11 +1,11 @@
 import React, { useContext, useRef, useEffect } from "react"
 import { TaskContext } from "../tasks/TaskProvider"
 import { useHistory } from 'react-router-dom';
-// import { Button, Checkbox, Form } from 'semantic-ui-react'
+
 
 export const TaskForm = (props) => {
     const { addTask, getTasks } = useContext(TaskContext)
-
+    const history = useHistory()
     /*
         Create references that can be attached to the input
         fields in the form. This will allow you to get the
@@ -16,6 +16,7 @@ export const TaskForm = (props) => {
     */
     const task = useRef(null)
     const completeBy = useRef(null)
+    const userId = useRef(null)
 
     /*
         Get animal state and location state on initialization.
@@ -25,27 +26,17 @@ export const TaskForm = (props) => {
     }, [])
 
     const constructNewTask = () => {
-        /*
-            The `location` and `customer` variables below are
-            the references attached to the input fields. You
-            can't just ask for the `.value` property directly,
-            but rather `.current.value` now in React.
-        */
-        const taskId = task.current.value
-
-        if (taskId === 0) {
+        if (task === 0) {
             window.alert("Please create a task")
         } else {
             addTask({
-                task: task,
-                taskId,
-                completeBy
+                task: task.current.value,
+                userId: userId.current.value,
+                completeBy: completeBy.current.value
             })
             .then(() => history.push("/tasks"))
         }
     }
-
-    const history = useHistory();
 
     
     return (
@@ -63,8 +54,8 @@ export const TaskForm = (props) => {
                     <input type="date" name="completeBy" ref={completeBy} className="form-control"></input>
                 </div>
             </fieldset>
-            <button type="save"
-                onClick={evt => {
+            <button type="saveTask"
+                onClick = {evt => {
                     evt.preventDefault() // Prevent browser from submitting the form
                     constructNewTask()
                 }}
@@ -76,26 +67,3 @@ export const TaskForm = (props) => {
 }
 
 
-    // const FormExampleForm = () => (
-    // <Form className="taskForm">
-    //     <h2 className="taskForm__title">New Task</h2>
-    //     <Form.Field>
-    //     <label htmlFor="taskName">Task Title</label>
-    //     <input placeholder='Task Title' id="animalName" ref={name} required autoFocus/>
-    //     </Form.Field>
-    //     <Form.Field>
-    //     <label htmlFor="completeBy">Complete By Date:</label>
-    //     <input placeholder='Complete Date' id="taskDate" ref={task} required/>
-    //     </Form.Field>
-    //     <Form.Field>
-    //     <Checkbox label='Completed Task!' />
-    //     </Form.Field>
-    //     <Button type='submit' onClick=preventDefault()
-    //     constructNewTask()>
-    //     Save Task</Button>
-    // </Form>
-    // )
-
-    // export default FormExampleForm
-
-    
