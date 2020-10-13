@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { MessageContext } from './MessageProvider'
 import { MessageCard } from "./MessageCard"
+import { Button, Input } from "semantic-ui-react"
 
 export const MessageForm = (props) => {
     const { messages, addMessage, getMessageById, updateMessage, getMessages } = useContext(MessageContext)
@@ -75,20 +76,20 @@ export const MessageForm = (props) => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="messageMessage">Type your message here: </label>
-                        <input type="text" id="messageMessage" name="message" required className="form-control"
+                        <Input type="text" id="messageMessage" name="message" required className="form-control"
                             placeholder="Write message here"
                             onChange={handleControlledInputChange}
                             defaultValue=""
                         />
                     </div>
-                </fieldset>
-                <button type="submit"
+                <Button type="submit"
                     // disabled={isLoading}
                     onClick={event => {
                         event.preventDefault() // Prevent browser from submitting the form
                         constructMessageObject()
                     }}> Send message
-                </button>
+                </Button>
+                </fieldset>
             </form>
         </div>
 
