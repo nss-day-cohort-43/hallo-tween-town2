@@ -15,8 +15,8 @@ export const FriendsList = () =>{
         <div className="friends">
             <h2>My Wolf Pack</h2>
             <button onClick={()=> {history.push("/friends")}}>
-        Add New Friend
-      </button>
+                Add New Friend
+             </button>
             {friends.map(friend => {
                 return<FriendCard key={friend.id} friend={friend} />
             })}
