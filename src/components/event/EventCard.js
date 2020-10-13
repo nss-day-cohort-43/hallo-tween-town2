@@ -8,7 +8,7 @@ export const EventCard = ({ event }) => (
       <Link to={`events/detail/${event.id}`}>{event.name}</Link>
     </h3>
     <div className="event__date">Date: {event.date} </div>
-    <div className="event__location">Location:{event.location}</div>
+    {/* <div className="event__location">Location:{event.location}</div> */}
     <br></br>
   </section>
 );

@@ -33,7 +33,7 @@ export const EventDetail = () => {
         Delete
       </Button>
       <Button
-        secondary
+        primary
         onClick={() => {
           history.push(`/events/edit/${event.id}`);
         }}
