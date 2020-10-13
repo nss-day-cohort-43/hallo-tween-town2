@@ -19,12 +19,10 @@ export const MessageDetail = () => {
             })
     }, [])
 
-    return (
-        <section className="message">
-            <h3 className="message__content">{message.message}</h3>
-            <div className="message__user">{user.username}</div>
-            <p className="message__date">{message.date}</p>
-
+    const buttonShow = (()=> {
+        if (user.id === parseInt(localStorage.getItem("werewolf_user")))
+        return (
+            <>
             <button onClick={
                 () => {
                     deleteMessage(message.id)
@@ -37,6 +35,19 @@ export const MessageDetail = () => {
                 history.push(`/messages/edit/${message.id}`)
                 }}>Edit
             </button>
+            </>
+        )
+    })
+
+    return (
+        <section className="message">
+            <h3 className="message__content">{message.message}</h3>
+            <div className="message__user">{user.username}</div>
+            <p className="message__date">{message.date}</p>
+            
+            {buttonShow()}
+            
+            
         </section>
 
     )
