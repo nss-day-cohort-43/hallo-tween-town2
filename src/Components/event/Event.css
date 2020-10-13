@@ -1,0 +1,13 @@
+.events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.event {
+    flex-basis: 20%;
+    margin: 1em;
+    padding: 1em;
+    border: 2px solid rgb(207, 68, 13);
+}
