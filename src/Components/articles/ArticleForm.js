@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { ArticleContext } from "./ArticleProvider"
 import "./Article.css"
 import { useHistory, useParams } from "react-router-dom"
+import { Button, Form } from "semantic-ui-react";
 
 export const ArticleForm = () => {
     const { addArticle, getArticleById, editArticle } = useContext(ArticleContext)
@@ -54,11 +55,11 @@ export const ArticleForm = () => {
         }
     
     return (
-        <form className="articleForm">
+        <Form className="articleForm">
             <h2 className="articleForm__title">New Article</h2>
-              <button onClick={() => {history.push(`/articles/detail/${article.id}`)}}>
+              <Button onClick={() => {history.push(`/articles/detail/${article.id}`)}}>
                         Back to details
-                    </button>
+                    </Button>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="articleTitle">Article title:</label>
@@ -96,14 +97,14 @@ export const ArticleForm = () => {
                          />
                 </div>
             </fieldset>
-            <button className="btn btn-primary"
+            <Button primary className="btn btn-primary"
                 disabled={isLoading}
                 onClick={event => {
                     event.preventDefault() // Prevent browser from submitting the form
                     constructArticleObj()
                 }}>
                   
-            {articleId ? <>Save Article</> : <>Add Article</>}</button>
-        </form>
+            {articleId ? <>Save Article</> : <>Add Article</>}</Button>
+        </Form>
     )
         }
