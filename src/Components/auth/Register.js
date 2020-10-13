@@ -57,7 +57,7 @@ export const Register = props => {
 
       <form className="form--login" onSubmit={handleRegister}>
         <h1 className="h3 mb-3 font-weight-normal">
-          Please Register for NSS Kennels
+          Become a werewolf
         </h1>
         <fieldset>
           <label htmlFor="username"> username </label>
