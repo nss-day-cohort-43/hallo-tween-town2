@@ -8,7 +8,7 @@ export const ArticleDetail = () => {
     const [article, setArticle] = useState({})
     const {articleId} = useParams();
     const history = useHistory();
-    const activeUser = sessionStorage.getItem("activeUser")
+    const activeUser = sessionStorage.getItem("wolf_user")
 
     useEffect(() => {
         getArticleById(articleId)
@@ -18,19 +18,18 @@ export const ArticleDetail = () => {
     }, [])
     return(
         <section className="article">
+            <button onClick={() => {history.push("/articles")}}>
+            Go back
+        </button>
             <h3 className="article-title">{article.title}</h3>
-            <div className="article-userId">{activeUser}</div>
             <div className="article-date">{article.date}</div>
             <div className="article-synopsis">{article.synopsis}</div>
             <div className="article-url">{article.url}</div>
-            <button onClick={
-				() => {
+            <button onClick={ () => {
 					deleteArticle(article.id)
 						.then(() => {
 							history.push("/articles")
-						})
-				}}>Delete
-			</button>
+						})}}>Delete</button>
             <button onClick={() => {
 				history.push(`/articles/edit/${article.id}`)
 			}}>Edit</button>
