@@ -18,7 +18,7 @@ export const EventProvider = props => {
       .then(setEvents);
   };
 
-  const addEvents = eventObj => {
+  const addEvent = eventObj => {
     return fetch("http://localhost:8088/events", {
       method: "POST",
       headers: {
@@ -28,12 +28,35 @@ export const EventProvider = props => {
     }).then(getEvents);
   };
 
+  const getEventById = id => {
+    return fetch(`http://localhost:8088/events/${id}`).then(res => res.json());
+  };
+
+  const deleteEvent = eventId => {
+    return fetch(`http://localhost:8088/events/${eventId}`, {
+      method: "DELETE"
+    }).then(getEvents);
+  };
+
+  const editEvent = event => {
+    return fetch(`http://localhost:8088/events/${event.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(event)
+    }).then(getEvents);
+  };
+
   return (
     <EventContext.Provider
       value={{
         events,
         getEvents,
-        addEvents
+        addEvent,
+        getEventById,
+        deleteEvent,
+        editEvent
       }}
     >
       {props.children}
