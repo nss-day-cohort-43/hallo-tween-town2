@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
-import {Button, Form, Segment, Input} from "semantic-ui-react"
+import {Button, Form, Segment} from "semantic-ui-react"
 
 export const Login = props => {
   const email = useRef();
@@ -48,7 +48,7 @@ export const Login = props => {
           <h2>Please sign in</h2>
           <Form>
             <label htmlFor="inputEmail"> Email address </label>
-            <Input
+            <input
               ref={email}
               type="email"
               id="email"
