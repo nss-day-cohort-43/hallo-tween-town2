@@ -1,0 +1,17 @@
+.messageBox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 1em;
+    border: solid pink;
+}
+
+.messageContainer {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end ;
+}

@@ -1,6 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { MessageList } from "./Messages/MessageList";
 import { MessageProvider } from "./Messages/MessageProvider";
 import { TaskProvider } from "./tasks/TaskProvider";
 import { TaskList } from "./tasks/TaskList";
@@ -15,7 +14,6 @@ import { ArticleForm } from "./articles/ArticleForm";
 import { ArticleProvider } from "./articles/ArticleProvider";
 import { ArticleList } from "./articles/ArticleList";
 import { Home } from "./Home";
-import { MessageDetail } from "./Messages/MessageDetails";
 import { MessageForm } from "./Messages/MessageForm";
 import { FriendProvider } from "./friends/FriendProvider";
 import { FriendsList } from "./friends/FriendList";
@@ -28,21 +26,8 @@ export const ApplicationViews = props => {
         <Home />
       </Route>
 
-    {/* all articles */}
       <MessageProvider>
         <Route exact path="/messages">
-          <MessageList />
-        </Route>
-      </MessageProvider>
-
-      <MessageProvider>
-        <Route exact path="/messages/detail/:messageId(\d+)">
-          <MessageDetail />
-        </Route>
-      </MessageProvider>
-
-      <MessageProvider>
-        <Route exact path="/messages/create">
           <MessageForm />
         </Route>
       </MessageProvider>
