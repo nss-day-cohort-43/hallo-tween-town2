@@ -3,6 +3,7 @@ import { EventContext } from "./EventProvider";
 import { EventCard } from "./EventCard";
 import "./Event.css";
 import { useHistory } from "react-router-dom";
+import { Header, Button } from "semantic-ui-react";
 
 export const EventList = () => {
   const { events, getEvents } = useContext(EventContext);
@@ -15,16 +16,16 @@ export const EventList = () => {
   const history = useHistory();
   return (
     <>
-      <h2>Events</h2>
-      <button
+      <Header as="h1">Events</Header>
+      <Button
+        primary
         onClick={() => {
           history.push("/events/create");
         }}
       >
         Add Event
-      </button>
+      </Button>
       <div className="events">
-        <h2>Events</h2>
         {events.map(event => {
           return <EventCard key={event.id} event={event} />;
         })}

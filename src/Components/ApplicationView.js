@@ -8,6 +8,8 @@ import { TaskForm } from "./tasks/TaskForm";
 import { TaskDetail } from "./tasks/TaskDetail";
 import { EventProvider } from "./event/EventProvider";
 import { EventList } from "./event/EventList";
+import { EventForm } from "./event/EventForm";
+import { EventDetail } from "./event/EventDetail";
 import { ArticleDetail } from "./articles/ArticleDetail";
 import { ArticleForm } from "./articles/ArticleForm";
 import { ArticleProvider } from "./articles/ArticleProvider";
@@ -77,8 +79,26 @@ export const ApplicationViews = props => {
       </TaskProvider>
 
       <EventProvider>
-        <Route path="/events">
+        <Route exact path="/events">
           <EventList />
+        </Route>
+      </EventProvider>
+
+      <EventProvider>
+        <Route exact path="/events/create">
+          <EventForm />
+        </Route>
+      </EventProvider>
+
+      <EventProvider>
+        <Route exact path="/events/edit/:eventId(\d+)">
+          <EventForm />
+        </Route>
+      </EventProvider>
+
+      <EventProvider>
+        <Route exact path="/events/detail/:eventId(\d+)">
+          <EventDetail />
         </Route>
       </EventProvider>
     </>
