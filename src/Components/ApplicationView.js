@@ -19,6 +19,7 @@ import { MessageDetail } from "./Messages/MessageDetails";
 import { MessageForm } from "./Messages/MessageForm";
 import { FriendProvider } from "./friends/FriendProvider";
 import { FriendsList } from "./friends/FriendList";
+import { FriendSearch } from "./friends/FriendSearch";
 
 export const ApplicationViews = props => {
   return (
@@ -127,6 +128,7 @@ export const ApplicationViews = props => {
 
       <FriendProvider>
           <Route exact path="/friends">
+              <FriendSearch />
               <FriendsList /> 
           </Route>
       </FriendProvider>

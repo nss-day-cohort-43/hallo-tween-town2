@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from "react"
 import {ArticleContext} from "./ArticleProvider"
 import {useHistory} from "react-router-dom"
 import {ArticleCard} from "./ArticleCard"
+import {Button} from "semantic-ui-react"
 import "./Article.css"
 
 export const ArticleList = () =>{
@@ -16,9 +17,9 @@ export const ArticleList = () =>{
     return(
         <>
             <h2>Articles</h2>
-            <button onClick={() => {history.push("/articles/create")}}>
+            <Button onClick={() => {history.push("/articles/create")}}>
             Add New Article
-        </button>
+        </Button>
         <div className="articles">
                 {articles.map(article =>{
                     return<ArticleCard key={article.id} article={article}/>
