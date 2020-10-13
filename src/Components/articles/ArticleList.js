@@ -15,11 +15,11 @@ export const ArticleList = () =>{
     const history = useHistory()
 
     return(
-        <>
+        <>  <div className="articlesBox">
             <h2>Articles</h2>
-            <Button onClick={() => {history.push("/articles/create")}}>
+            <Button primary onClick={() => {history.push("/articles/create")}}>
             Add New Article
-        </Button>
+        </Button></div>
         <div className="articles">
                 {articles.map(article =>{
                     return<ArticleCard key={article.id} article={article}/>

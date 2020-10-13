@@ -1,8 +1,8 @@
-.events {
+.tasks {
     padding: 2em;
 }
 
-.event {
+.task {
     padding: 1em;
     border: 2px solid orange;
 }
@@ -15,7 +15,7 @@ h3.task__name {
     color: purple;
 }
 
-.eventTitleButton {
+.taskTitleButton {
     margin: 0em 0em 2em 2em;
 }
 
