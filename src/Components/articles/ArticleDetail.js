@@ -43,6 +43,14 @@ export const ArticleDetail = () => {
             <div className="article-date">{article.date}</div>
             <div className="article-synopsis">{article.synopsis}</div>
             <div className="article-url">{article.url}</div>
+            <Button onClick={ () => {
+					deleteArticle(article.id)
+						.then(() => {
+							history.push("/articles")
+						})}}>Delete</Button>
+            <Button onClick={() => {
+				history.push(`/articles/edit/${article.id}`)
+			}}>Edit</Button>
             
         </section>
     )
