@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { TaskContext } from "./TaskProvider"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Checkbox } from 'semantic-ui-react'
+import "./Task.css"
 
 export const TaskDetail = () => {
     const { tasks, deleteTask, getTaskById } = useContext(TaskContext)

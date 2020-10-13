@@ -1,14 +1,28 @@
 .tasks {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
+    padding: 2em;
 }
 
 .task {
-    flex-basis: 20%;
-    margin: 1em;
     padding: 1em;
     border: 2px solid orange;
 }
 
+a {
+    color: purple;
+}
+
+h3.task__name {
+    color: purple;
+}
+
+.taskTitleButton {
+    margin: 0em 0em 2em 2em;
+}
+
+.task__completeBy  {
+    color: white;
+}
+
+.task__checked {
+    color: white;
+}

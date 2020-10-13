@@ -2,7 +2,7 @@ import React, { useContext, useRef, useEffect, useState } from "react"
 import { TaskContext } from "../tasks/TaskProvider"
 import { useHistory, useParams  } from 'react-router-dom';
 import { Button, Checkbox, Form } from 'semantic-ui-react'
-
+import "./Task.css"
 
 export const TaskForm = (props) => {
     const { addTask, getTasks, getTaskById, editTask } = useContext(TaskContext)
@@ -86,7 +86,7 @@ export const TaskForm = (props) => {
     return (
         <Form className="taskForm">
             <h2 className="taskForm__title">New Task</h2>
-            <Form.Field>
+            <Form.Field inverted>
                 <div className="form-group">
                     <label htmlFor="taskName">Task Name: </label>
                     <input type="text" name="task" id="tasks" value={tasks.task} required autoFocus className="form-control" placeholder="Task name" 
@@ -94,7 +94,7 @@ export const TaskForm = (props) => {
                     />
                 </div>
             </Form.Field>
-            <Form.Field>
+            <Form.Field inverted>
                 <div className="form-group">
                     <label htmlFor="completeTask">Complete By Date: </label>
                     <input type="date" name="completeBy" value={tasks.completeBy} className="form-control"

@@ -1,13 +1,28 @@
 .events {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-direction: row;
+    padding: 2em;
 }
 
 .event {
-    flex-basis: 30%;
-    margin: 1em;
     padding: 1em;
-    border: 2px solid rgb(25, 105, 197);
+    border: 2px solid orange;
+}
+
+a {
+    color: purple;
+}
+
+h3.task__name {
+    color: purple;
+}
+
+.eventTitleButton {
+    margin: 0em 0em 2em 2em;
+}
+
+.task__completeBy  {
+    color: white;
+}
+
+.task__checked {
+    color: white;
 }

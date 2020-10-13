@@ -1,7 +1,17 @@
-label {
-    color: white;
+.container--login { width: 600px; 
+    margin: 30px auto 0px auto; 
+    }
+
+.input_email {
+    color: white
 }
 
-h1 h2 {
-    color: white;
+.form--login { 
+    width: 600px;
+    margin: auto; 
+    vertical-align: middle;
 }
+
+main { width: 800px; 
+    margin: 30px auto 0px auto; 
+    }

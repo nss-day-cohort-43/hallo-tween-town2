@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { MessageContext } from "./MessageProvider"
 import { useParams, useHistory } from "react-router-dom"
 import {Button} from "semantic-ui-react"
+import "./Message.css"
 
 export const MessageDetail = () => {
     const { deleteMessage, getMessageById } = useContext(MessageContext)

@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { MessageContext } from './MessageProvider'
+import "./Message.css"
 
 export const MessageForm = (props) => {
     const { addMessage, getMessageById, updateMessage } = useContext(MessageContext)

@@ -24,9 +24,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -39,5 +36,13 @@
 
 
 html body {
-  background-color: black;
+  background-image: linear-gradient(black, white);
+}
+
+h2 {
+  color: white
+}
+
+.homeTitle {
+  margin: 0em 0em 2em 2em;
 }
