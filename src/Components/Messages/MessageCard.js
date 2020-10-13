@@ -1,14 +1,52 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { formatRelative, subDays } from 'date-fns'
+import React, { useContext, useEffect, useState } from "react"
+import { MessageContext } from "./MessageProvider"
+import { useHistory, useParams } from 'react-router-dom';
+import { Button, Container, Icon } from "semantic-ui-react"
 
-export const MessageCard = ({ message }) => (
-    <section className="message">
-        <Link to={`/messages/detail/${message.id}`}>
-            <h3 className="message__content">{message.message}</h3>
-        </Link>
-            <div className="message__user">{message.user.username}</div>
-            <div className="message__date">{formatRelative(subDays(new Date(message.date), 0), new Date())}</div>
-        
-    </section>
-)
+export const MessageCard = ({ message }) => {
+    const history = useHistory()
+
+    const { getMessages, deleteMessage, updateMessage } = useContext(MessageContext)
+
+    // useEffect(() => {
+    //     if (messageId) {
+    //         getMessageById(messageId)
+    //             .then(message => {
+    //                 setMessage(message)
+    //                 setIsLoading(false)
+    //             })
+    //     } else {
+    //         setIsLoading(false)
+    //     }
+    // }, [])
+
+    const buttonShow = (()=> {
+        if (message.user.id === parseInt(localStorage.getItem("werewolf_user")))
+        return (
+            <>
+            <button onClick={
+                () => {
+                    deleteMessage(message.id)
+                        .then(() => {
+                            history.push("/messages")
+                        })
+                }}><Icon name="trash" />
+            </button>
+            <button onClick={() => {
+                history.push(`/messages/edit/${message.id}`)
+                }}><Icon name="edit" />
+            </button>
+            </>
+        )
+    })
+
+    return (
+        <section className="messageBox">
+            <section className="messageContainer">
+                <div className="message">{message.user.username} - {message.message}</div>
+            </section>
+            <div className="message__date">{message.date}</div>
+            {buttonShow()}
+        </section>
+    )
+}
