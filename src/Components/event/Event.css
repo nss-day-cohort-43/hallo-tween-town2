@@ -6,8 +6,8 @@
 }
 
 .event {
-    flex-basis: 20%;
+    flex-basis: 30%;
     margin: 1em;
     padding: 1em;
-    border: 2px solid rgb(207, 68, 13);
+    border: 2px solid rgb(25, 105, 197);
 }
