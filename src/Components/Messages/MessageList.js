@@ -7,7 +7,7 @@ import { MessageForm } from "./MessageForm"
 
 export const MessageList = () => {
     // This state changes when `getMessages()` is invoked below
-    const { messages, getMessages } = useContext(MessageContext)
+    const { messages, getMessages, deleteMessage } = useContext(MessageContext)
     const history = useHistory()
 
     //useEffect - reach out to the world for something
