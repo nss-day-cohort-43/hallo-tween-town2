@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { MessageContext } from "./MessageProvider"
 import { useParams, useHistory } from "react-router-dom"
+import {Button} from "semantic-ui-react"
 
 export const MessageDetail = () => {
     const { deleteMessage, getMessageById } = useContext(MessageContext)
@@ -23,20 +24,20 @@ export const MessageDetail = () => {
         <section className="message">
             <h3 className="message__content">{message.message}</h3>
             <div className="message__user">{user.username}</div>
-            <p className="message__date">{message.date}</p>
+            <div className="message__date">{message.date}</div>
 
-            <button onClick={
+            <Button onClick={
                 () => {
                     deleteMessage(message.id)
                         .then(() => {
                             history.push("/messages")
                         })
                 }}>Delete Message
-            </button>
-            <button onClick={() => {
+            </Button>
+            <Button onClick={() => {
                 history.push(`/messages/edit/${message.id}`)
                 }}>Edit
-            </button>
+            </Button>
         </section>
 
     )

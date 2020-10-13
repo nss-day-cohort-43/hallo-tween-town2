@@ -3,6 +3,7 @@ import { MessageContext } from "./MessageProvider"
 import { MessageCard } from "./MessageCard"
 import { useHistory } from "react-router-dom"
 import { MessageForm } from "./MessageForm"
+import {Button} from "semantic-ui-react"
 
 
 export const MessageList = () => {
@@ -24,9 +25,9 @@ export const MessageList = () => {
                     return <MessageCard key={message.id} user={message.user.name} message={message} />
                 })
             }  
-            <button onClick={() => {history.push("/messages/create")}}>
+            <Button onClick={() => {history.push("/messages/create")}}>
                 New Message
-            </button>          
+            </Button>          
         </div>
     )
 }

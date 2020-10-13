@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
+import {Button, Form, Segment, Input} from "semantic-ui-react"
 
 export const Login = props => {
   const email = useRef();
@@ -32,21 +33,22 @@ export const Login = props => {
     <main className="container--login">
       <dialog className="dialog dialog--auth" ref={existDialog}>
         <div>User does not exist</div>
-        <button
+        <Button
           className="button--close"
           onClick={e => existDialog.current.close()}
         >
           Close
-        </button>
+        </Button>
       </dialog>
 
       <section>
-        <form className="form--login" onSubmit={handleLogin}>
+        <Segment inverted>
+        <Form inverted className="form--login" onSubmit={handleLogin}>
           <h1>Hallo Tween Town</h1>
           <h2>Please sign in</h2>
-          <fieldset>
+          <Form>
             <label htmlFor="inputEmail"> Email address </label>
-            <input
+            <Input
               ref={email}
               type="email"
               id="email"
@@ -55,11 +57,11 @@ export const Login = props => {
               required
               autoFocus
             />
-          </fieldset>
-          <fieldset>
-            <button type="submit">Sign in</button>
-          </fieldset>
-        </form>
+          </Form>
+          <Form>
+            <Button type="submit">Sign in</Button>
+          </Form>
+        </Form></Segment>
       </section>
       <section className="link--register">
         <Link to="/register">Not a member yet?</Link>

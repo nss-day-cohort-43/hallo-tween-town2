@@ -1,0 +1,14 @@
+.tasks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.task {
+    flex-basis: 20%;
+    margin: 1em;
+    padding: 1em;
+    border: 2px solid orange;
+}
+

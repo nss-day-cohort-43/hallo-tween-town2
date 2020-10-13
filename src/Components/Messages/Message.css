@@ -1,0 +1,29 @@
+.messages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.message {
+    flex-basis: 20%;
+    margin: 1em;
+    padding: 1em;
+    border: 2px solid orange;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+li a:hover {
+    background-color: #111;
+    color: white;
+}

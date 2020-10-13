@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "./Message.css"
 
 export const MessageCard = ({ message }) => (
     <section className="message">
