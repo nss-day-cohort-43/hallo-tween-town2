@@ -11,8 +11,6 @@ export const MessageForm = (props) => {
     const { messageId } = useParams();
     const history = useHistory()
 
-    const message = useRef(null)
-
     const handleControlledInputChange = (event) => {
         const newMessage = { ...messages }
         newMessage[event.target.name] = event.target.value
