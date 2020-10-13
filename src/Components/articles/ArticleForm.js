@@ -56,6 +56,9 @@ export const ArticleForm = () => {
     return (
         <form className="articleForm">
             <h2 className="articleForm__title">New Article</h2>
+              <button onClick={() => {history.push(`/articles/detail/${article.id}`)}}>
+                        Back to details
+                    </button>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="articleTitle">Article title:</label>
@@ -99,6 +102,7 @@ export const ArticleForm = () => {
                     event.preventDefault() // Prevent browser from submitting the form
                     constructArticleObj()
                 }}>
+                  
             {articleId ? <>Save Article</> : <>Add Article</>}</button>
         </form>
     )
