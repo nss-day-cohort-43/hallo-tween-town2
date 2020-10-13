@@ -43,7 +43,14 @@ export const MessageDetail = () => {
         <section className="message">
             <h3 className="message__content">{message.message}</h3>
             <div className="message__user">{user.username}</div>
-            <p className="message__date">{message.date}</p>
+            <p className="message__date">
+                {new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric', 
+                    month: '2-digit',
+                    day: '2-digit', 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit'}).format(message.date)}</p>
             
             {buttonShow()}
             
