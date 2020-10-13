@@ -17,6 +17,8 @@ import { ArticleList } from "./articles/ArticleList";
 import { Home } from "./Home";
 import { MessageDetail } from "./Messages/MessageDetails";
 import { MessageForm } from "./Messages/MessageForm";
+import { FriendProvider } from "./friends/FriendProvider";
+import { FriendsList } from "./friends/FriendList";
 
 export const ApplicationViews = props => {
   return (
@@ -122,6 +124,12 @@ export const ApplicationViews = props => {
           <EventDetail />
         </Route>
       </EventProvider>
+
+      <FriendProvider>
+          <Route exact path="/friends">
+              <FriendsList /> 
+          </Route>
+      </FriendProvider>
     </>
   );
 };
