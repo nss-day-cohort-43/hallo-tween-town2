@@ -25,6 +25,7 @@ export const ApplicationViews = props => {
         <Home />
       </Route>
 
+    {/* all articles */}
       <MessageProvider>
         <Route exact path="/messages">
           <MessageList />
