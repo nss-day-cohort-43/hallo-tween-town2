@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react"
 import {ArticleContext} from "./ArticleProvider"
 import {useHistory, useParams} from "react-router-dom"
+import {Button} from "semantic-ui-react"
 import "./Article.css"
 
 export const ArticleDetail = () => {
@@ -35,13 +36,21 @@ export const ArticleDetail = () => {
 
     return(
         <section className="article">
-            <button onClick={() => {history.push("/articles")}}>
+            <Button onClick={() => {history.push("/articles")}}>
             Go back
-        </button>
+        </Button>
             <h3 className="article-title">{article.title}</h3>
             <div className="article-date">{article.date}</div>
             <div className="article-synopsis">{article.synopsis}</div>
             <div className="article-url">{article.url}</div>
+            <Button onClick={ () => {
+					deleteArticle(article.id)
+						.then(() => {
+							history.push("/articles")
+						})}}>Delete</Button>
+            <Button onClick={() => {
+				history.push(`/articles/edit/${article.id}`)
+			}}>Edit</Button>
             
         </section>
     )

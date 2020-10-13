@@ -28,12 +28,26 @@ export const FriendProvider = (props) => {
     })
     .then(getFriends)
     }
+    //need specific friend to see
+    const getFriendById= (id) =>{
+        return fetch(`http://localhost:8088/friends?friendId=${userId}&userId=${id}&_expand=user`)
+        .then(res=>res.json())
+    }
+
+    //need to delete a friend
+    const deleteFriend = friendId => {
+        return fetch(`http://localhost:8088/friends/${friendId}`, {
+            method: "DELETE"
+        })
+        .then(getFriends)
+    }
+
     return(
-        <FriendProvider.Provider value={{
-            friends, getFriends, addFriend
+        <FriendContext.Provider value={{
+            friends, getFriends, addFriend, getFriendById, deleteFriend
         }}>
             {props.children}
-        </FriendProvider.Provider>
+        </FriendContext.Provider>
     )
 }
 

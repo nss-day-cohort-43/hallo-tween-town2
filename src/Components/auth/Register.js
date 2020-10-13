@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
+import {Card, Button, Form} from 'semantic-ui-react'
 
 export const Register = props => {
   const username = useRef();
@@ -54,25 +55,26 @@ export const Register = props => {
           Close
         </button>
       </dialog>
-
-      <form className="form--login" onSubmit={handleRegister}>
-        <h1 className="h3 mb-3 font-weight-normal">
-          Become a werewolf
+      <Card>
+        <Card.Content>
+      <Form className="form--login" onSubmit={handleRegister}>
+        <h1 className="h3 mb-3 font-weight-normal"><Card.Header>
+          Become a Werewolf</Card.Header>
         </h1>
-        <fieldset>
-          <label htmlFor="username"> username </label>
+        <Card.Content>
+          <div>
+          <label htmlFor="username">Create a Username </label>
           <input
             ref={username}
             type="text"
             name="username"
             className="form-control"
-            placeholder="user name"
+            placeholder="Username"
             required
             autoFocus
-          />
-        </fieldset>
-        <fieldset>
-          <label htmlFor="inputEmail"> Email address </label>
+          /></div>
+        <div>
+          <label htmlFor="inputEmail">Email Address </label>
           <input
             ref={email}
             type="email"
@@ -80,12 +82,12 @@ export const Register = props => {
             className="form-control"
             placeholder="Email address"
             required
-          />
-        </fieldset>
-        <fieldset>
-          <button type="submit"> Sign in </button>
-        </fieldset>
-      </form>
+          /></div>
+        </Card.Content>
+          <Button type="submit"> Sign in </Button>
+        
+      </Form></Card.Content></Card>
     </main>
+    
   );
 };

@@ -1,11 +1,13 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { MessageContext } from './MessageProvider'
+import "./Message.css"
+import { MessageCard } from "./MessageCard"
 
 export const MessageForm = (props) => {
-    const { addMessage, getMessageById, updateMessage } = useContext(MessageContext)
+    const { messages, addMessage, getMessageById, updateMessage, getMessages } = useContext(MessageContext)
 
-    const [messages, setMessage] = useState({ message: "", date: ""})
+    const [message, setMessage] = useState({})
     const [isLoading, setIsLoading] = useState(true)
 
     const { messageId } = useParams();
@@ -18,6 +20,7 @@ export const MessageForm = (props) => {
     }
 
     useEffect(() => {
+        getMessages()
         if (messageId) {
             getMessageById(messageId)
                 .then(message => {
@@ -30,54 +33,65 @@ export const MessageForm = (props) => {
     }, [])
 
     const constructMessageObject = () => {
+        const userId = parseInt(localStorage.getItem("werewolf_user"))
         setIsLoading(true);
         if (messageId) {
             updateMessage({
-                id: messages.id,
-                message: messages.message,
-                date: messages.date,
-                userId: messages.userId
+                id: message.id,
+                message: message.message,
+                date: message.date,
+                userId: message.userId
             })
                 .then(() => history.push(`/messages/detail/${messageId}`))
         } else {
             addMessage({
-                message: messages.message,
-                date: messages.date,
-                userId: parseInt(localStorage.getItem("werewolf_user"))
+                message: message.message,
+                date: new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric', 
+                    month: '2-digit',
+                    day: '2-digit', 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit'})
+                    .format(Date.now()),
+                userId: userId
             })
                 .then(() => history.push("/messages"))
         }
     }
 
+
     return (
-        <form className="messageForm">
-            <h2 className="messageForm__title">New Message</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="messageMessage">Type your message here: </label>
-                    <input type="text" id="message" name="message" value={messages.message} required autoFocus className="form-control"
-                        placeholder="Message name"
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="messageDate">Date of event: </label>
-                    <input type="date" id="messageDate" name="date" value={messages.date} required className="form-control"
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <button type="saveMessage"
-                className="btn btn-primary"
-                disabled={isLoading}
-                onClick={event => {
-                    event.preventDefault() // Prevent browser from submitting the form
-                    constructMessageObject()
-                }}>
-                {messageId ? <>Save Message</> : <>Add Message</>}
-            </button>
-        </form>
+        <div className="messageList">
+            <h2>Messages</h2>
+            <div className="messagesWindow">
+                {
+                    messages.map(message => {
+                        return <MessageCard key={message.id} user={message.user.name} message={message} />
+                    })
+                }
+            </div>
+
+            <form className="messageForm">
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="messageMessage">Type your message here: </label>
+                        <input type="text" id="messageMessage" name="message" required className="form-control"
+                            placeholder="Write message here"
+                            onChange={handleControlledInputChange}
+                            defaultValue=""
+                        />
+                    </div>
+                </fieldset>
+                <button type="submit"
+                    // disabled={isLoading}
+                    onClick={event => {
+                        event.preventDefault() // Prevent browser from submitting the form
+                        constructMessageObject()
+                    }}> Send message
+                </button>
+            </form>
+        </div>
+
     )
 }

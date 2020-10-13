@@ -2,6 +2,9 @@ import React, { useContext, useEffect } from "react"
 import { TaskContext } from "./TaskProvider"
 import { TaskCard } from "./TaskCard"
 import { useHistory } from "react-router-dom"
+import {Button} from "semantic-ui-react"
+import "./Task.css"
+import {Grid } from 'semantic-ui-react'
 
 export const TaskList = () => {
    // This state changes when `getTasks()` is invoked below
@@ -18,18 +21,23 @@ export const TaskList = () => {
 
     return (
         <>  
-            
+            <div className="taskTitleButton">
             <h2>Tasks</h2>
-            <button onClick={() => {history.push("/tasks/create")}}>
+            <Button onClick={() => {history.push("/tasks/create")}}>
                 New Task
-            </button>
-            <div className="tasks">
+            </Button></div>
+                <Grid container columns={3}>
+                   <Grid.Row>
+                      
             {
                 tasks.map(task => {
-                    return <TaskCard key={task.id} task={task} />
+                    return <Grid.Column><TaskCard key={task.id} task={task} /></Grid.Column>
                 })
             }
-            </div>
+             </Grid.Row>
+            </Grid>
+           
+        
         </>
     )
 }
