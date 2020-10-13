@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { MessageContext } from "./MessageProvider"
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Container, Icon } from "semantic-ui-react"
+import "./Message.css"
 
 export const MessageCard = ({ message }) => {
     const history = useHistory()
@@ -20,33 +21,35 @@ export const MessageCard = ({ message }) => {
     //     }
     // }, [])
 
-    const buttonShow = (()=> {
+    const buttonShow = (() => {
         if (message.user.id === parseInt(localStorage.getItem("werewolf_user")))
-        return (
-            <>
-            <button onClick={
-                () => {
-                    deleteMessage(message.id)
-                        .then(() => {
-                            history.push("/messages")
-                        })
-                }}><Icon name="trash" />
-            </button>
-            <button onClick={() => {
-                history.push(`/messages/edit/${message.id}`)
-                }}><Icon name="edit" />
-            </button>
-            </>
-        )
+            return (
+                <>
+                    <button onClick={
+                        () => {
+                            deleteMessage(message.id)
+                                .then(() => {
+                                    history.push("/messages")
+                                })
+                        }}><Icon name="trash" />
+                    </button>
+                    <button onClick={() => {
+                        history.push(`/messages/edit/${message.id}`)
+                    }}><Icon name="edit" />
+                    </button>
+                </>
+            )
     })
 
     return (
         <section className="messageBox">
             <section className="messageContainer">
                 <div className="message">{message.user.username} - {message.message}</div>
+                <div className="message__date">{message.date}</div>
             </section>
-            <div className="message__date">{message.date}</div>
-            {buttonShow()}
+            <section className="buttons">
+                {buttonShow()}
+            </section>
         </section>
     )
 }
