@@ -11,7 +11,6 @@ export const TaskDetail = () => {
 	const history = useHistory();
 
     useEffect(() => {
-		console.log("useEffect", taskId)
         getTaskById(taskId)
         .then((response) => {
 			setTask(response)
@@ -22,7 +21,7 @@ export const TaskDetail = () => {
         <section className="task">
             <h3 className="task__name">{task.task}</h3>
             <div className="task__completeBy">Complete By: {task.completeBy}</div>
-			<div className="task__checked">Complete?: {task.checked}</div>
+			<div className="task__checked">Complete? <input type="checkbox">{task.checked}</input></div>
             
             <button onClick={
                 () => {

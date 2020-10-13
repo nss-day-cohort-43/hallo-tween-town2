@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useEffect, useState } from "react"
 import { TaskContext } from "../tasks/TaskProvider"
 import { useHistory, useParams  } from 'react-router-dom';
+import { Button, Checkbox, Form } from 'semantic-ui-react'
 
 
 export const TaskForm = (props) => {
@@ -83,32 +84,32 @@ export const TaskForm = (props) => {
 
     
     return (
-        <form className="taskForm">
+        <Form className="taskForm">
             <h2 className="taskForm__title">New Task</h2>
-            <fieldset>
+            <Form.Field>
                 <div className="form-group">
                     <label htmlFor="taskName">Task Name: </label>
                     <input type="text" name="task" id="tasks" value={tasks.task} required autoFocus className="form-control" placeholder="Task name" 
                     onChange={handleControlledInputChange}
                     />
                 </div>
-            </fieldset>
-            <fieldset>
+            </Form.Field>
+            <Form.Field>
                 <div className="form-group">
                     <label htmlFor="completeTask">Complete By Date: </label>
                     <input type="date" name="completeBy" value={tasks.completeBy} className="form-control"
                     onChange={handleControlledInputChange}
                     ></input>
                 </div>
-            </fieldset>
-            <button type="saveTask"
+            </Form.Field>
+            <Button type="saveTask"
                 disabled={isLoading}
                 onClick = {evt => {
                     evt.preventDefault() // Prevent browser from submitting the form
                     constructNewTask()
                 }}> {taskId ? <>Save Task</> : <>Add Task</>}
-                </button>
-        </form>
+                </Button>
+        </Form>
     )
 }
 
