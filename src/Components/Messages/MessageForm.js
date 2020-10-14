@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { MessageContext } from './MessageProvider'
 import "./Message.css"
 import { MessageCard } from "./MessageCard"
+import { Button, Input, TextArea } from "semantic-ui-react"
 
 export const MessageForm = (props) => {
     const { messages, addMessage, getMessageById, updateMessage, getMessages } = useContext(MessageContext)
@@ -63,7 +64,7 @@ export const MessageForm = (props) => {
 
     return (
         <div className="messageList">
-            <h2>Messages</h2>
+            <h2 id="sectionMessageHeader">Messages</h2>
             <div className="messagesWindow">
                 {
                     messages.map(message => {
@@ -76,20 +77,22 @@ export const MessageForm = (props) => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="messageMessage">Type your message here: </label>
-                        <input type="text" id="messageMessage" name="message" required className="form-control"
+                        <br></br>
+                        <textarea type="text" id="messageMessage" width="30em" name="message" required className="form-control"
                             placeholder="Write message here"
                             onChange={handleControlledInputChange}
                             defaultValue=""
                         />
-                    </div>
-                </fieldset>
-                <button type="submit"
-                    // disabled={isLoading}
+                    <br></br>
+                <Button primary type="submit"
+                    // disabled={isLoading} herererer
                     onClick={event => {
                         event.preventDefault() // Prevent browser from submitting the form
                         constructMessageObject()
                     }}> Send message
-                </button>
+                </Button>
+                </div>
+                </fieldset>
             </form>
         </div>
 

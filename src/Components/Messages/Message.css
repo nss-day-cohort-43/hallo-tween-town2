@@ -1,49 +1,43 @@
-
-
 .message {
-    padding: 1em;
-    border: 2px solid orange;
-    background-color: white;
+    
 }
 
-li {
-    display: inline;
-    float: left;
+#sectionMessageHeader {
+    padding-left: 1em;
 }
 
-a {
-    display: block;
-    padding: 8px;
-    background-color: #dddddd;
-    color: purple;
+.form-group {
+    margin-left: 1em;
 }
-
-h3.message__content {
-    color: purple;
-}
-
-li a:hover {
-    background-color: #111;
-    color: white;
-}
-
-h2 {
-    padding: 0em 0em 0em 2em; }
 
 .messageBox {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     margin-top: 1em;
-    border: solid pink;
+    margin-left: 1em;
+    border: 2px solid orange;
+    background-color: white;
+    padding: 1em;
+    width: 70%;
 }
 
-.messageContainer {
-    display: flex;
-    flex-flow: row wrap;
+
+fieldset {
+    border: none;
 }
 
-.buttons {
-    display: flex;
-    justify-content: flex-end ;
+.message__date {
+    font-size: smaller;
+    color: rgba(70, 70, 70, 0.605);
+}
+
+.messagesWindow {
+    margin-left: 1em;
+    border: none;
+}
+
+textarea {
+    width: 71.5%;
+    height: 5em;
 }
