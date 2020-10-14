@@ -18,11 +18,12 @@ export const ArticleList = () =>{
 
     return(
             <>
-        <Button primary onClick={() => {history.push("/articles/create")}}>
-            Add New Article
-        </Button>
+        
         <div className="articlesBox">
             <h2>Articles</h2>
+            <Button primary onClick={() => {history.push("/articles/create")}}>
+            Add New Article
+        </Button></div>
         <Grid container columns={3}>
         <Grid.Row>
                 {articles.map(article =>{
@@ -30,7 +31,8 @@ export const ArticleList = () =>{
                 })}
        </Grid.Row>
       </Grid>
-      </div>
+      
+      
             </>
     )
 

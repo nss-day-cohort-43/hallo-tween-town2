@@ -37,12 +37,14 @@ export const ArticleDetail = () => {
     // }
 
     return(
-        <Card>
-    <Card.Content>
-        <section className="article">
+        <>
+       
             <Button primary onClick={() => {history.push("/articles")}}>
             Go back
         </Button>
+         
+        <Card>
+    <Card.Content><section className="article">
         <Card.Header>
 
             <h3 className="article-title">{article.title}</h3>
@@ -59,9 +61,11 @@ export const ArticleDetail = () => {
 				history.push(`/articles/edit/${article.id}`)
 			}}>Edit</Button>
             </Card.Content>
-        </section>
+            </section>          
         </Card.Content>
   </Card>
+  
+  </>
     )
 
 } 

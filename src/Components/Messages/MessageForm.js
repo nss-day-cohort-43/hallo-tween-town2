@@ -58,6 +58,12 @@ export const MessageForm = (props) => {
                 userId: userId
             })
                 .then(() => history.push("/messages"))
+                .then(() => getMessages())
+                .then(() => {
+                    const clearer = document.querySelector("#messageMessage")
+                    clearer.value = ""
+                    message.message = ""
+                })
         }
     }
 
