@@ -3,6 +3,8 @@ import {ArticleContext} from "./ArticleProvider"
 import {useHistory, useParams} from "react-router-dom"
 import {Button} from "semantic-ui-react"
 import "./Article.css"
+import {Card} from 'semantic-ui-react'
+
 
 export const ArticleDetail = () => {
     const { getArticleById, deleteArticle} = useContext(ArticleContext)
@@ -35,11 +37,16 @@ export const ArticleDetail = () => {
     // }
 
     return(
+        <Card>
+    <Card.Content>
         <section className="article">
-            <Button onClick={() => {history.push("/articles")}}>
+            <Button primary onClick={() => {history.push("/articles")}}>
             Go back
         </Button>
+        <Card.Header>
+
             <h3 className="article-title">{article.title}</h3>
+            </Card.Header><Card.Content>
             <div className="article-date">{article.date}</div>
             <div className="article-synopsis">{article.synopsis}</div>
             <div className="article-url">{article.url}</div>
@@ -51,8 +58,10 @@ export const ArticleDetail = () => {
             <Button onClick={() => {
 				history.push(`/articles/edit/${article.id}`)
 			}}>Edit</Button>
-            
+            </Card.Content>
         </section>
+        </Card.Content>
+  </Card>
     )
 
 } 

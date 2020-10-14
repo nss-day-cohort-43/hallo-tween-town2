@@ -1,0 +1,33 @@
+.friend{
+    padding: 1em;
+    border: 2px solid orange;
+}
+.friends{
+    margin-top: 3em;
+}    
+
+h3{
+    text-align: center;
+}
+
+.fas{
+    margin-right: 1em;
+    padding: 1em;
+    background-color: white;
+}
+.far{
+    padding: 1em;
+    background-color: white;
+
+}
+
+.fab{
+    align-items: center;
+}
+
+.searchBar{
+    margin-left: 3em;
+}
+.wolf-icon{
+    align-items: center;
+}
