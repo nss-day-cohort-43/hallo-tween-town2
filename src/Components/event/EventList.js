@@ -4,6 +4,8 @@ import { EventCard } from "./EventCard";
 import "./Event.css";
 import { useHistory } from "react-router-dom";
 import { Header, Button } from "semantic-ui-react";
+import {Grid } from 'semantic-ui-react'
+
 
 export const EventList = () => {
   const { events, getEvents } = useContext(EventContext);
@@ -16,7 +18,10 @@ export const EventList = () => {
   const history = useHistory();
   return (
     <>
-      <Header as="h1">Events</Header>
+      
+      
+      <div className="eventTitleButton">
+        <h2>Events</h2>
       <Button
         primary
         onClick={() => {
@@ -24,12 +29,17 @@ export const EventList = () => {
         }}
       >
         Add Event
-      </Button>
-      <div className="events">
+      </Button></div>
+      <Grid container columns={3}>
+        <Grid.Row>
+          
         {events.map(event => {
-          return <EventCard key={event.id} event={event} />;
+          return <Grid.Column><EventCard key={event.id} event={event} /></Grid.Column>;
         })}
-      </div>
+      
+      
+      </Grid.Row>
+      </Grid>
     </>
   );
 };

@@ -1,9 +1,9 @@
-.articles {
+.tasks {
     padding: 2em;
 }
 
-.article {
-    padding: 2em;
+.task {
+    padding: 1em;
     border: 2px solid orange;
 }
 
@@ -11,9 +11,12 @@ a {
     color: purple;
 }
 
+h3.task__name {
+    color: purple;
+}
 
-.articlesBox {
-    margin: 0em 0em 0em 2em;
+.taskTitleButton {
+    margin: 0em 0em 2em 2em;
 }
 
 .task__completeBy  {
@@ -22,8 +25,4 @@ a {
 
 .task__checked {
     color: white;
-}
-
-fieldset {
-    border:none;
 }
