@@ -9,9 +9,9 @@ export const Home = () => (
     <>
         <div className="homeTitle">
             <Image src={logo} alt="hallo-tweens"/>
-        <h2>HalloTWEEN Town Werewolves</h2>
+        <h2>HalloTWEEN Town Werewolves</h2></div>
         <p>Catch us outside ...howling</p>
-        </div>
+        
         
     </>
 )
