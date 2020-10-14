@@ -77,12 +77,13 @@ export const MessageForm = (props) => {
                 <fieldset>
                     <div className="form-group">
                         <label htmlFor="messageMessage">Type your message here: </label>
+                        <br></br>
                         <textarea type="text" id="messageMessage" width="30em" name="message" required className="form-control"
                             placeholder="Write message here"
                             onChange={handleControlledInputChange}
                             defaultValue=""
                         />
-                    
+                    <br></br>
                 <Button primary type="submit"
                     // disabled={isLoading}
                     onClick={event => {
