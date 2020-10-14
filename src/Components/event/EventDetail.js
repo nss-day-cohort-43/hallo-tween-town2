@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import "./Event.css";
 import { Button } from "semantic-ui-react";
 import {Card} from 'semantic-ui-react'
+import moment from 'moment'
 
 export const EventDetail = () => {
   const { getEventById, deleteEvent } = useContext(EventContext);
@@ -23,8 +24,14 @@ export const EventDetail = () => {
     <section className="event"><Card.Header>
       <h3 className="event-name">{event.name}</h3></Card.Header><Card.Content>
       <div className="event-userId">{activeUser}</div>
-      <div className="event-date">{event.date}</div>
+      <div className="event-date">
+        {moment(event.date).format("MMMM Do YYYY")}--
+        {moment(event.date)
+          .startOf("day")
+          .fromNow()}
+      </div>
       <div className="event-location">{event.location}</div>
+      <br></br>
       <Button
         primary
         onClick={() => {
