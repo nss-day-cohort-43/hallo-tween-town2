@@ -10,6 +10,8 @@ export const Login = props => {
   const existDialog = useRef();
   const history = useHistory();
 
+
+
   const existingUserCheck = () => {
     return fetch(`http://localhost:8088/users?email=${email.current.value}`)
       .then(res => res.json())
@@ -45,7 +47,8 @@ export const Login = props => {
         <Segment inverted>
         <Form inverted className="form--login" onSubmit={handleLogin}>
           <h1>Hallo Tween Town</h1>
-          <img src="src/moonLogo.png"></img>
+          
+          <img src="./src/moonLogo.png"></img>
           <h2>Please sign in</h2>
           <Form>
             <label htmlFor="inputEmail"> Email address </label>
