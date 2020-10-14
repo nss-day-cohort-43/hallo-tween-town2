@@ -85,7 +85,7 @@ export const MessageForm = (props) => {
                         />
                     <br></br>
                 <Button primary type="submit"
-                    // disabled={isLoading}
+                    // disabled={isLoading} herererer
                     onClick={event => {
                         event.preventDefault() // Prevent browser from submitting the form
                         constructMessageObject()
