@@ -23,7 +23,7 @@ export const TaskList = () => {
         <>  
             <div className="taskTitleButton">
             <h2>Tasks</h2>
-            <Button onClick={() => {history.push("/tasks/create")}}>
+            <Button primary onClick={() => {history.push("/tasks/create")}}>
                 New Task
             </Button></div>
                 <Grid container columns={3}>

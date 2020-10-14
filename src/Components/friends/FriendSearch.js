@@ -6,17 +6,12 @@ import "./Friend.css"
 export const FriendSearch = () => {
     const { setSearchTerms } = useContext(FriendContext)
     const InputExampleIconPosition = () => (
-        <Input icon='users' iconPosition='left' placeholder='Search users...' />
+        <Input class="searchBar" icon='users' iconPosition='left' placeholder='Search wolves...' />
       )
 
     // useEffect(() => {
     //     setSearchTerms("")
     // }, [])
 
-    return (
-        <>
-            Search wolves:
-           {InputExampleIconPosition()}
-        </>
-    )
+    return InputExampleIconPosition()
 }

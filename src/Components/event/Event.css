@@ -18,11 +18,3 @@ h3.task__name {
 .eventTitleButton {
     margin: 0em 0em 2em 2em;
 }
-
-.task__completeBy  {
-    color: white;
-}
-
-.task__checked {
-    color: white;
-}

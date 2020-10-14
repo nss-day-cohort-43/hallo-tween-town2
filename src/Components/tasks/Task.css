@@ -19,10 +19,12 @@ h3.task__name {
     margin: 0em 0em 2em 2em;
 }
 
+
 .task__completeBy  {
-    color: white;
+    color: black;
 }
 
 .task__checked {
-    color: white;
+    
+    color: black;
 }

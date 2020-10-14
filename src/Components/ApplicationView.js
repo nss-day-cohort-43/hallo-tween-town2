@@ -112,10 +112,10 @@ export const ApplicationViews = props => {
       </EventProvider>
 
       <FriendProvider>
-          <Route exact path="/friends">
-              <FriendSearch />
-              <FriendsList /> 
-          </Route>
+        <Route exact path="/friends">
+          <FriendSearch />
+          <FriendsList />
+        </Route>
       </FriendProvider>
     </>
   );
