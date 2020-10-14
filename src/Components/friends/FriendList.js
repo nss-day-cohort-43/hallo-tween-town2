@@ -2,11 +2,13 @@ import React, {useContext, useEffect} from "react"
 import {FriendContext} from "./FriendProvider"
 import {FriendCard} from "./FriendCard"
 import {useHistory} from "react-router-dom"
-import { Header, Icon, Image, Button } from 'semantic-ui-react'
+import { Header, Icon, Image, Button, Grid } from 'semantic-ui-react'
+import "./Friend.css"
+
 
 const HeaderExampleUsersIcon = () => (
   <div>
-    <Header as='h2' icon textAlign='center'>
+    <Header as='h3' icon textAlign='center'>
       <Icon name='users' circular />
       <Header.Content>My Wolf Pack</Header.Content>
     </Header>
@@ -27,14 +29,21 @@ export const FriendsList = () =>{
     const history = useHistory()
     
     return (
-        <div className="friends">
+        <>
             {HeaderExampleUsersIcon()}
-            <Button primary onClick={()=> {history.push("/friends/add")}}>
+            <Button  class="addNew" primary onClick={()=> {history.push("/friends/add")}}>
                 Add New Friend
              </Button>
+        <div className="friends">
+                </div>
+             <Grid container columns={5}>
+             <Grid.Row>
+
             {friends.map(friend => {
-                return<FriendCard key={friend.id} friend={friend} />
+                return<Grid.Column><FriendCard key={friend.id} friend={friend} /></Grid.Column>
             })}
-        </div>
+        </Grid.Row>
+        </Grid>
+</>
     )
 }

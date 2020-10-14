@@ -17,9 +17,10 @@ li a:hover {
 .navbar {
     display: flex;
     flex: 100%;
+    background-color:rgb(52, 21, 109) ;
    
 }
 
 .navbar__link {
-    color: #2185D0;
+    color: white;
 }
