@@ -64,7 +64,7 @@ export const MessageForm = (props) => {
 
     return (
         <div className="messageList">
-            <h2 id="sectionHeader">Messages</h2>
+            <h2 id="sectionMessageHeader">Messages</h2>
             <div className="messagesWindow">
                 {
                     messages.map(message => {

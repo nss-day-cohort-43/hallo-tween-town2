@@ -2,7 +2,7 @@
     
 }
 
-#sectionHeader {
+#sectionMessageHeader {
     padding-left: 1em;
 }
 
@@ -34,6 +34,7 @@ fieldset {
 
 .messagesWindow {
     margin-left: 1em;
+    border: none;
 }
 
 textarea {
