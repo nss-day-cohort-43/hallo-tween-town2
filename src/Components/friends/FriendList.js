@@ -3,6 +3,7 @@ import {FriendContext} from "./FriendProvider"
 import {FriendCard} from "./FriendCard"
 import {useHistory} from "react-router-dom"
 import { Header, Icon, Image, Button } from 'semantic-ui-react'
+import "./Friend.css"
 
 const HeaderExampleUsersIcon = () => (
   <div>
